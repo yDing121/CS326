@@ -35,22 +35,18 @@ if __name__ == '__main__':
     P = [0.08, 0.06, 0.07, 0.03, 0.05, 0.12, 0.1]
     Q = [0.05, 0.07, 0.03, 0.04, 0.04, 0.09, 0.09, 0.08]
 
-    e_P = [0.15, 0.1, 0.05, 0.1, 0.2]
-    e_Q = [0.05, 0.1, 0.05, 0.05, 0.05, 0.1]
-
-    # L = len(P)
     print(f"Sum of P and Q:\t{sum(P) + sum(Q)}")
     e_arr, w_arr, roots_arr = optimalBST(P, Q)
-    # e_arr, w_arr, roots_arr = optimalBST(e_P, e_Q)
-
 
     print("---E")
     for row in e_arr:
-        print(row)
+        if type(row) == list:
+            print(row[1:])
 
     print("---W")
     for row in w_arr:
-        print(row)
+        if type(row) == list:
+            print(row[1:])
 
     print("---Root")
     for row in roots_arr:
