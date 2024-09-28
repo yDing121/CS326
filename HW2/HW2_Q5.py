@@ -72,14 +72,15 @@ if __name__ == '__main__':
     # print(S_naive(n0))
     # print("--------")
     # print(M_naive(n0))
-    #
+    
     # print(">>><<<")
 
     m_map = {}
     s_map = {}
     # print(S(n0, s_map, m_map))
-    # print("--------")
     # print(M(n0, m_map))
+    # print("--------")
+    
     ans1 = bs(n0, int(5e6), s_map, m_map)
     ans2 = bs(0, int(1e7), s_map, m_map)
     dumbans = dumbsearch(n0, s_map, m_map)
