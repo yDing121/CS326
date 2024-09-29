@@ -1,3 +1,7 @@
+# THIS CODE IS MY OWN WORK, IT WAS WRITTEN WITHOUT CONSULTING
+#
+# A TUTOR OR CODE WRITTEN BY OTHER STUDENTS - Lance Ding
+
 def optimalBST(P, Q):
     # Get number of keys
     n = len(P)

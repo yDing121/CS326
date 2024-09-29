@@ -1,22 +1,28 @@
 import math
+import numpy as np
+
+# THIS CODE IS MY OWN WORK, IT WAS WRITTEN WITHOUT CONSULTING
+#
+# A TUTOR OR CODE WRITTEN BY OTHER STUDENTS - Lance Ding
 
 
-def M(n: int, m_map: dict) -> int:
+
+def M(n: int, m_map: np.ndarray) -> int:
     if n <= 1:
         return 0
 
-    if n in m_map.keys():
+    if m_map[n] > 0:
         return m_map[n]
 
     m_map[n] = M(math.floor(n/2), m_map) + M(math.ceil(n/2), m_map) + n - 1
     return m_map[n]
 
 
-def S(n: int, s_map: dict, m_map: dict) -> int:
+def S(n: int, s_map: np.ndarray, m_map: np.ndarray) -> int:
     if n < 100:
         return M(n, m_map)
 
-    if n in s_map.keys():
+    if s_map[n] > 0:
         return s_map[n]
 
     s_map[n] = min(M(n, m_map),
@@ -24,13 +30,9 @@ def S(n: int, s_map: dict, m_map: dict) -> int:
     return s_map[n]
 
 
-def clear(s_map: dict, m_map: dict) -> None:
-    s_map.clear()
-    m_map.clear()
 
 
-def dumbsearch(n: int, s_map: dict, m_map: dict) -> int:
-    clear(s_map, m_map)
+def dumbsearch(n: int, s_map: np.ndarray, m_map: np.ndarray) -> int:
     while 3 * S(n, s_map, m_map) > 2 * M(n, m_map):
         n += 1
     return n
@@ -39,8 +41,8 @@ def dumbsearch(n: int, s_map: dict, m_map: dict) -> int:
 if __name__ == '__main__':
     n0 = 324
 
-    m_map = {}
-    s_map = {}
+    m_map = np.zeros(int(1e7), dtype=int)
+    s_map = np.zeros(int(1e7), dtype=int)
 
     # Verify n0
     n0_ver = 0
